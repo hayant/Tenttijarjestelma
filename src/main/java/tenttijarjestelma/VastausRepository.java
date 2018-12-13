@@ -2,10 +2,11 @@ package tenttijarjestelma;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource(exported=true)
+@RepositoryRestResource(collectionResourceRel = "vastaukset", path = "vastaukset")
 public interface VastausRepository extends PagingAndSortingRepository<Vastaus, Long> {
 
 	List<Vastaus> findByOppilas(Oppilas oppilas);
@@ -17,5 +18,6 @@ public interface VastausRepository extends PagingAndSortingRepository<Vastaus, L
 	// List<Vastaus> findByOppilasIdAndTenttiIdAndKokoKysymysOikein(Long oppilasId, Long tenttiId, Boolean arvo);
 	List<Vastaus> findByVastausvaihtoehtoId(Long id);
 	List<Vastaus> findByOppilasAndVastausvaihtoehto(Oppilas oppilas, Vastausvaihtoehto vastausvaihtoehto);
+
 
 }

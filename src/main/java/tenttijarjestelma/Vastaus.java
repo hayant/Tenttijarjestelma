@@ -3,6 +3,7 @@ package tenttijarjestelma;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -26,15 +27,15 @@ public class Vastaus implements Serializable {
 	@Id
 	private Long tentti_id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "oppilas_id", updatable = false, insertable = false, referencedColumnName = "id")
 	private Oppilas oppilas;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "vastausvaihtoehto_id", updatable = false, insertable = false, referencedColumnName = "id")
 	private Vastausvaihtoehto vastausvaihtoehto;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "tentti_id", updatable = false, insertable = false, referencedColumnName = "id")
 	private Tentti tentti;
 	
@@ -42,5 +43,4 @@ public class Vastaus implements Serializable {
 	
 	private Boolean menikoOikein = null;
 	
-	// private Boolean kokoKysymysOikein = null;
 }

@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 @RepositoryRestResource(collectionResourceRel = "oppilaat", path = "oppilaat")
-@PreAuthorize("hasRole('ROLE_OPETTAJA')")
+// @PreAuthorize("hasRole('ROLE_OPETTAJA')")
 public interface OppilasRepository extends CrudRepository<Oppilas, Long> {
 
 	@Override
@@ -29,7 +29,7 @@ public interface OppilasRepository extends CrudRepository<Oppilas, Long> {
 	Optional<Oppilas> findById(@Param("id") Long id);
 	
 	@Override
-	@Query(value="select * from oppilas where oppilas.ope_id=(select opettaja.id from opettaja where opettaja.name = ?#{ principal.username })",
-			nativeQuery = true)
+	//@Query(value="select * from oppilas where oppilas.ope_id=(select opettaja.id from opettaja where opettaja.name = ?#{ principal.username })",
+	//		nativeQuery = true)
 	Iterable<Oppilas> findAll();
 }
