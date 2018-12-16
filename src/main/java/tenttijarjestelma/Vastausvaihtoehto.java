@@ -33,6 +33,6 @@ public class Vastausvaihtoehto {
 	private List<Vastaus> vastaukset;
 	
 	private String vaihtoehto;
-	private boolean oikeaVastaus;
+	private Boolean oikeaVastaus;
 	
 }

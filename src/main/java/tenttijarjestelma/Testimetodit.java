@@ -288,7 +288,7 @@ public class Testimetodit {
 					} else {
 						System.out.println("Epätosi");
 					}
-					if (jonnenVastaus.get(0).getOppilaanVastaus() != vastausvaihtoehto.isOikeaVastaus()) {
+					if (jonnenVastaus.get(0).getOppilaanVastaus() != vastausvaihtoehto.getOikeaVastaus()) {
 						vastasikoJonneOikein = false;
 					}
 				}

@@ -22,7 +22,7 @@ public class Tarkastus {
 	public void arvioiKorjaamattomatVastaukset() {
 		List<Vastaus> korjaamattomat = vastaukset.findByMenikoOikein(null);
 		for (Vastaus vastaus : korjaamattomat) {
-			vastaus.setMenikoOikein(vastaus.getOppilaanVastaus() == vastaus.getVastausvaihtoehto().isOikeaVastaus());
+			vastaus.setMenikoOikein(vastaus.getOppilaanVastaus() == vastaus.getVastausvaihtoehto().getOikeaVastaus());
 		}
 		vastaukset.saveAll(korjaamattomat);
 	}
@@ -49,7 +49,7 @@ public class Tarkastus {
 				List<Vastaus> jonnenVastaus = vastaukset.findByOppilasIdAndVastausvaihtoehtoId(opiskelija.getId(),
 						vastausvaihtoehto.getId());
 				if (jonnenVastaus.size() > 0) {
-					if (jonnenVastaus.get(0).getOppilaanVastaus() != vastausvaihtoehto.isOikeaVastaus()) {
+					if (jonnenVastaus.get(0).getOppilaanVastaus() != vastausvaihtoehto.getOikeaVastaus()) {
 						vastasikoJonneOikein = false;
 					}
 				}
@@ -95,7 +95,7 @@ public class Tarkastus {
 				List<Vastaus> jonnenVastaus = vastaukset.findByOppilasIdAndVastausvaihtoehtoIdAndTenttiId(opiskelija.getId(),
 						vastausvaihtoehto.getId(), tentti.getId());
 				if (jonnenVastaus.size() > 0) {
-					if (jonnenVastaus.get(0).getOppilaanVastaus() != vastausvaihtoehto.isOikeaVastaus()) {
+					if (jonnenVastaus.get(0).getOppilaanVastaus() != vastausvaihtoehto.getOikeaVastaus()) {
 						vastasikoJonneOikein = false;
 					}
 				}

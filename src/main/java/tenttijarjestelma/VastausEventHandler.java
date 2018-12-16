@@ -47,8 +47,13 @@ public class VastausEventHandler {
 		
 		Optional<Vastausvaihtoehto> vastausvaihtoehto = vastausvaihtoehdot.findById(vastaus.getVastausvaihtoehto_id());
 		vastaus.setVastausvaihtoehto(vastausvaihtoehto.get());
-		
-		tarkastus.arvioiTehtavat();
+
+		// Tarkastetaan vastauksen oikeellisuus ennen lisäystä
+		if(vastaus.getVastausvaihtoehto().getOikeaVastaus() == vastaus.getOppilaanVastaus()) {
+			vastaus.setMenikoOikein(true);
+		} else {
+			vastaus.setMenikoOikein(false);
+		}
 	}
 
 	@HandleBeforeDelete
