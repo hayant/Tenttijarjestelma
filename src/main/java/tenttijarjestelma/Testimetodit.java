@@ -6,10 +6,18 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+
+import entity.Opettaja;
+import entity.Oppilas;
+import entity.Tentti;
+import entity.Tenttikysymys;
+import entity.Vastaus;
+import entity.Vastausvaihtoehto;
+import repository.OpettajaRepository;
+import repository.OppilasRepository;
+import repository.TenttiRepository;
+import repository.VastausRepository;
 
 @Component
 public class Testimetodit {
